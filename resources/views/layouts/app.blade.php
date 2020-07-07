@@ -24,7 +24,7 @@
 </head>
 <body>
     <script>
-        var socket = io("ws://127.0.0.1:8083", {
+        var socket = io("ws://{{ str_replace('http://', '', config('app.url')).':'.config('app.port')}}", {
             path: '/socket.io',
             transports: ['websocket']
         })

@@ -25,7 +25,7 @@ class CommandHistoryController extends Controller
     public function index()
     {
         $commandHistories = CommandHistory::all();
-        return view('command_history.index')->with('command_histories', $commandHistories);
+        return view('command_history.index')->with('commands', $commandHistories);
     }
 
     /**
@@ -91,6 +91,8 @@ class CommandHistoryController extends Controller
      */
     public function destroy(CommandHistory $commandHistory)
     {
-        //
+        $commandHistory->delete();
+	$commandHistories = CommandHistory::all();
+	return view('home')->with('commands', $commandHistories);
     }
 }

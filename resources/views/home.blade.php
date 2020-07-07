@@ -14,22 +14,22 @@
                 @endif
                 
                 <div class="row">
-                    <div class="col-md-3 float-left"><h3>Name</h3></div>  
-                    <div class="col-md-3 float-right"><h3>Status</h3></div> 
-                    <div class="col-md-3 float-center"><h3>Start</h3></div>
-                    <div class="col-md-3 float-center"><h3>End</h3></div>                  
+                    <div class="col-md-4 float-left"><h3>Name</h3></div>  
+                    <div class="col-md-2 float-right"><h3>Status</h3></div> 
+                    <div class="col-md-2 float-center"><h3>Start</h3></div>
+                    <div class="col-md-2 float-center"><h3>End</h3></div>
+                    <div class="col-md-2 float-center"><h3>Delete</h3></div>
                 </div>
                 <ul class="list-group">
                     @foreach ($commands as $command)
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="float-left col-md-2">{{ $command->command->name }}</div>
+                            <div class="float-left col-md-4">{{ $command->command->name }}</div>
                             <div class="float-center col-md-2">{{ $command->status }}</div>
                             <div class="float-center col-md-2">{{ $command->created_at }}</div>
                             <div class="float-center col-md-2">{{ $command->updated_at }}</div>
-                            <div class="col-md-3 float-right">
-                                <a class="btn btn-info btn-small" role="button" href="commands/{{ $command->id }}/edit">Edit</a>
-                                <a class="btn btn-danger btn-small" role="button" href="{{ route('commands.delete', $command->id) }}">Delete</a>
+                            <div class="col-md-2 float-right">
+                                <a class="btn btn-danger btn-small" role="button" href="{{ route('command_histories.delete', $command->id) }}">Delete</a>
                             </div>
                         </div>
                     </li>
@@ -48,19 +48,19 @@
                 <div class="row align-content-center mb-3">
                     <div class="col-md-4">
                         <a role="button" class="btn btn-primary" href="category">
-                            Categories <span class="badge badge-light">9</span>
+                            Categories <span class="badge badge-light">{{ $categ_num }}</span>
                             <span class="sr-only">categories</span>
                         </a>
                     </div>
                     <div class="col-md-4">
                         <a role="button" class="btn btn-primary" href="sim_slots">
-                            Sim_Slots <span class="badge badge-light">9</span>
+                            Sim_Slots <span class="badge badge-light">{{ $sim_num }}</span>
                             <span class="sr-only">Sim Slots</span>
                         </a>
                     </div>
                     <div class="col-md-4">
                         <a role="button" class="btn btn-primary" href="commands">
-                            Commands <span class="badge badge-light">9</span>
+                            Commands <span class="badge badge-light">{{ $cmd_num }}</span>
                             <span class="sr-only">commands</span>
                         </a>
                     </div>
